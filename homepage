@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>StudentGuide</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Segoe UI, sans-serif;
+}
+
+body{
+    background:radial-gradient(circle at top,#020617,#000);
+    color:#fff;
+    overflow:hidden;
+}
+
+/* MAIN STAGE */
+.stage{
+    position:absolute;
+    inset:0;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+/* FEATURE ICONS */
+.feature{
+    position:absolute;
+    width:90px;
+    height:90px;
+    border-radius:50%;
+    background:#0f172a;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:2.2rem;
+    box-shadow:0 0 40px rgba(56,189,248,0.7);
+    animation:float 3s ease-in-out infinite;
+    transition:2s cubic-bezier(.68,-0.55,.27,1.55);
+}
+
+/* RANDOM START */
+.f1{ transform:translate(-400px,-250px) rotate(0deg); }
+.f2{ transform:translate(420px,-220px) rotate(0deg); }
+.f3{ transform:translate(-420px,240px) rotate(0deg); }
+.f4{ transform:translate(400px,260px) rotate(0deg); }
+
+/* FORM LOGO */
+.animate .f1{ transform:translate(0,-140px) rotate(360deg); }
+.animate .f2{ transform:translate(140px,0) rotate(360deg); }
+.animate .f3{ transform:translate(0,140px) rotate(360deg); }
+.animate .f4{ transform:translate(-140px,0) rotate(360deg); }
+
+/* LOGO TEXT */
+.logo{
+    position:absolute;
+    font-size:3rem;
+    font-weight:700;
+    letter-spacing:2px;
+    color:#38bdf8;
+    opacity:0;
+    filter:blur(10px);
+    transform:scale(0.8);
+    transition:1.5s ease;
+}
+
+/* LOGO SHOW */
+.show-logo{
+    opacity:1;
+    filter:blur(0);
+    transform:scale(1);
+}
+
+/* MOVE LOGO */
+.move-left{
+    transform:translateX(-360px) scale(0.9);
+}
+
+/* LOGIN BOX */
+.login{
+    position:absolute;
+    right:-420px;
+    width:320px;
+    background:rgba(15,23,42,0.9);
+    backdrop-filter:blur(12px);
+    padding:30px;
+    border-radius:18px;
+    box-shadow:0 0 40px rgba(56,189,248,0.4);
+    opacity:0;
+    transition:1.4s cubic-bezier(.34,1.56,.64,1);
+}
+
+.login h2{
+    text-align:center;
+    margin-bottom:20px;
+    color:#38bdf8;
+}
+
+.login input{
+    width:100%;
+    padding:12px;
+    margin:10px 0;
+    border:none;
+    border-radius:10px;
+    outline:none;
+}
+
+.captcha{
+    text-align:center;
+    background:#020617;
+    padding:10px;
+    border-radius:10px;
+    letter-spacing:4px;
+    margin:10px 0;
+    font-weight:bold;
+}
+
+.login button{
+    width:100%;
+    padding:12px;
+    background:#38bdf8;
+    border:none;
+    border-radius:10px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+/* SHOW LOGIN */
+.show-login{
+    right:80px;
+    opacity:1;
+}
+
+/* FLOAT EFFECT */
+@keyframes float{
+    0%,100%{ transform:translateY(0); }
+    50%{ transform:translateY(-10px); }
+}
+</style>
+</head>
+
+<body>
+
+<div class="stage" id="stage">
+    <div class="feature f1">📦</div>
+    <div class="feature f2">🍔</div>
+    <div class="feature f3">📚</div>
+    <div class="feature f4">🚌</div>
+
+    <div class="logo" id="logo">StudentGuide</div>
+</div>
+
+<div class="login" id="login">
+    <h2>Login</h2>
+    <input type="text" placeholder="Login ID">
+    <input type="password" placeholder="Password">
+    <div class="captcha">X9A7Q</div>
+    <input type="text" placeholder="Enter Captcha">
+    <button>Login</button>
+</div>
+
+<script>
+setTimeout(()=>{
+    stage.classList.add("animate");
+},800);
+
+setTimeout(()=>{
+    logo.classList.add("show-logo");
+},2600);
+
+setTimeout(()=>{
+    logo.classList.add("move-left");
+},4300);
+
+setTimeout(()=>{
+    login.classList.add("show-login");
+},5200);
+</script>
+
+</body>
+</html>
