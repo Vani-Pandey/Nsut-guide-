@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lost & Found | NSUT Guide</title>
+
+<link rel="stylesheet" href="css/lostfound.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+
+<header class="lf-header">
+  <h1><i class="fas fa-box-open"></i> Lost & Found</h1>
+  <p>Help reunite people with their belongings</p>
+</header>
+
+<!-- Tabs -->
+<!-- <div class="tabs">
+  <button class="tab-btn active" onclick="showTab('Lost')">Lost Items</button>
+  <button class="tab-btn" onclick="showTab('Found')">Found Items</button>
+</div> -->
+
+<!-- Form -->
+<section class="form-section">
+<h2>Report Item</h2>
+
+<form id="itemForm">
+
+<select id="type" required>
+  <option value="">Select Type</option>
+  <option value="Lost">Lost</option>
+  <option value="Found">Found</option>
+</select>
+
+<input type="text" id="title" placeholder="Item Name" required>
+
+<input type="text" id="place" placeholder="Place (APJ Block, Canteen, Hostel...)">
+
+<textarea id="description" placeholder="Description"></textarea>
+
+<input type="file" id="image" accept="image/*">
+
+<button type="submit">Submit</button>
+
+</form>
+</section>
+
+<!-- Items -->
+<section class="items-section">
+<div id="itemsContainer"></div>
+</section>
+
+<script src="js/lostfound.js"></script>
+</body>
+</html>
