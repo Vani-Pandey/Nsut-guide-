@@ -28,6 +28,9 @@ app.get("/", (req, res) => {
 app.get("/lostfound", (req, res) => {
   res.sendFile(path.join(__dirname, "frontend", "lostfound.html"));
 });
+app.get("/lostfound2", (req, res) => {
+  res.sendFile(path.join(__dirname, "frontend", "lostfound2.html"));
+});
 
 app.listen(4000, () => {
   console.log("Server running on port 4000");

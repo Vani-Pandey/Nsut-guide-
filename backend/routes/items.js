@@ -21,6 +21,7 @@ router.post("/", upload.single("image"), async (req, res) => {
       title: req.body.title,
       place: req.body.place,
       desc: req.body.desc,
+      phone: req.body.phone,
       image: req.file ? `/uploads/${req.file.filename}` : ""
     });
 

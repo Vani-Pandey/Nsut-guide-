@@ -5,6 +5,7 @@ const ItemSchema = new mongoose.Schema({
   title: String,
   place: String,
   desc: String,
+  phone: String, 
   image: String,
   time: {
     type: Date,

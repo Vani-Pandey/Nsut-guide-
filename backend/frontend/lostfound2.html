@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>All Lost & Found Items</title>
+  <link rel="stylesheet" href="css/lostfound.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    .container {
+      display: flex;
+      gap: 40px;
+      padding: 20px;
+    }
+
+    .column {
+      flex: 1;
+    }
+
+    .column h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .item-card {
+      border: 1px solid #ddd;
+      padding: 10px;
+      margin-bottom: 15px;
+      border-radius: 8px;
+      background: #f9f9f9;
+    }
+
+    img {
+      width: 100%;
+      max-height: 200px;
+      object-fit: cover;
+    }
+  </style>
+</head>
+<body>
+
+<header class="lf-header">
+
+  <div class="header-left">
+    <h1><i class="fas fa-box-open"></i> Lost & Found</h1>
+    <p>Help reunite people with their belongings</p>
+  </div>
+
+  <div class="header-right">
+    <div class="toggle-switch" id="pageToggle">
+      <div class="toggle-slider"></div>
+      <span class="toggle-option">Add</span>
+      <span class="toggle-option">View</span>
+    </div>
+  </div>
+
+</header>
+
+
+<div class="container">
+  <div class="column">
+    <h2>Lost Items</h2>
+    <div id="lostItems"></div>
+  </div>
+
+  <div class="column">
+    <h2>Found Items</h2>
+    <div id="foundItems"></div>
+  </div>
+</div>
+
+<script src="js/lostfound2.js"></script>
+</body>
+</html>
