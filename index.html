@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>NSUT Guide</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<nav>
+  <h2>🎓 NSUT Guide</h2>
+  <ul>
+    <li onclick="showPage('home')">Home</li>
+    <li onclick="showPage('lost')">Lost</li>
+    <li onclick="showPage('canteen')">Canteen</li>
+    <li onclick="showPage('books')">Books</li>
+    <li onclick="showPage('societies')">Societies</li>
+    <li onclick="showPage('profile')">Profile</li>
+  </ul>
+</nav>
+
+<!-- HOME -->
+<section id="home" class="page active">
+  <div class="hero">
+    <h1>Your Campus. One App.</h1>
+    <p>Food • Books • Lost Items • Events</p>
+  </div>
+
+  <div class="dashboard">
+    <div class="dash-card" onclick="showPage('lost')">
+      <img src="https://source.unsplash.com/400x300/?lost,bag">
+      <h3>Lost & Found</h3>
+    </div>
+    <div class="dash-card" onclick="showPage('canteen')">
+      <img src="https://source.unsplash.com/400x300/?fast-food">
+      <h3>Canteen</h3>
+    </div>
+    <div class="dash-card" onclick="showPage('books')">
+      <img src="https://source.unsplash.com/400x300/?books">
+      <h3>Books</h3>
+    </div>
+    <div class="dash-card" onclick="showPage('societies')">
+      <img src="https://source.unsplash.com/400x300/?college,event">
+      <h3>Societies</h3>
+    </div>
+  </div>
+</section>
+
+<!-- LOST -->
+<section id="lost" class="page">
+  <h1>Lost & Found</h1>
+  <div class="grid">
+    <div class="card">
+      <img src="https://source.unsplash.com/400x300/?wallet">
+      <span class="tag lost">Lost</span>
+      <h3>Wallet</h3>
+      <p>Library</p>
+    </div>
+    <div class="card">
+      <img src="https://source.unsplash.com/400x300/?id-card">
+      <span class="tag found">Found</span>
+      <h3>ID Card</h3>
+      <p>Main Gate</p>
+    </div>
+  </div>
+</section>
+
+<!-- CANTEEN -->
+<section id="canteen" class="page">
+  <h1>Canteen</h1>
+  <div class="grid">
+    <div class="card">
+      <img src="https://source.unsplash.com/400x300/?pizza">
+      <h3>Pizza</h3>
+      <p>₹120 • 10 mins</p>
+      <button onclick="order('Pizza')">Add</button>
+    </div>
+    <div class="card">
+      <img src="https://source.unsplash.com/400x300/?burger">
+      <h3>Burger</h3>
+      <p>₹60 • 7 mins</p>
+      <button onclick="order('Burger')">Add</button>
+    </div>
+    <div class="card">
+      <img src="https://source.unsplash.com/400x300/?noodles">
+      <h3>Noodles</h3>
+      <p>₹80 • 8 mins</p>
+      <button onclick="order('Noodles')">Add</button>
+    </div>
+  </div>
+</section>
+
+<!-- BOOKS -->
+<section id="books" class="page">
+  <h1>Buy / Sell Books</h1>
+  <div class="grid">
+    <div class="card">
+      <img src="https://source.unsplash.com/400x300/?programming-book">
+      <h3>DSA Book</h3>
+      <p>₹350 • 2nd Year</p>
+      <button>Chat Seller</button>
+    </div>
+    <div class="card">
+      <img src="https://source.unsplash.com/400x300/?engineering-book">
+      <h3>Maths-I</h3>
+      <p>₹200 • 1st Year</p>
+      <button>Chat Seller</button>
+    </div>
+  </div>
+</section>
+
+<!-- SOCIETIES -->
+<section id="societies" class="page">
+  <h1>Societies & Events</h1>
+  <div class="grid">
+    <div class="card">
+      <img src="https://source.unsplash.com/400x300/?hackathon">
+      <h3>CodeCell</h3>
+      <p>Hackathons & CP</p>
+    </div>
+    <div class="card">
+      <img src="https://source.unsplash.com/400x300/?dance,stage">
+      <h3>Dance Society</h3>
+      <p>Fest Performances</p>
+    </div>
+    <div class="card">
+      <img src="https://source.unsplash.com/400x300/?music,concert">
+      <h3>Music Society</h3>
+      <p>Live Concerts</p>
+    </div>
+  </div>
+</section>
+
+<!-- PROFILE -->
+<section id="profile" class="page profile">
+  <img src="https://source.unsplash.com/200x200/?girl,student">
+  <h2>Kashish</h2>
+  <p>NSUT • CSE</p>
+  <div class="profile-btns">
+    <button>My Orders</button>
+    <button>My Listings</button>
+  </div>
+</section>
+
+<script src="script.js"></script>
+</body>
+</html>
