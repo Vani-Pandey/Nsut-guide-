@@ -15,3 +15,15 @@ nsut-guide/
 │── js/
 │   └── main.js
 
+lost-found/
+│
+├── backend/
+│   ├── server.js
+│   ├── models/
+│   │   └── Item.js
+│   ├── routes/
+│   │   └── items.js
+│   └── uploads/
+│
+└── frontend/
+    └── (your HTML, CSS, JS)
