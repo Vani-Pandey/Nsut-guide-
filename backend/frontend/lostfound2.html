@@ -70,3 +70,194 @@
 <script src="js/lostfound2.js"></script>
 </body>
 </html>
+
+<!-- <!DOCTYPE html>
+<html>
+<head>
+  <title>All Lost & Found Items</title>
+  <link rel="stylesheet" href="css/lostfound.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+ <style> 
+  .header-right { display: flex; flex-direction: column; gap: 10px; align-items: flex-end; } /* Lost / Found toggle */ 
+  .filter-toggle { display: flex; gap: 8px; align-items: center; justify-content: center;} 
+  .filter-toggle button { padding: 6px 16px; border-radius: 999px; border: 1px solid var(--border); background: white; color: var(--text-main); font-weight: 600; cursor: pointer; transition: 0.25s; } 
+  .filter-toggle button.active { background: var(--primary); color: white; border-color: var(--primary); } 
+
+.column {
+  flex: 1;
+}
+
+.column h2 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 16px;
+  color: var(--text-main);
+}
+
+#lostItems,
+#foundItems {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 20px;
+}
+
+.item-card {
+  background: var(--card-bg);
+  border-radius: 20px;
+  border: 1px solid var(--border);
+  padding: 18px;
+  transition: 0.25s ease;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.04);
+  position: relative;
+  overflow: hidden;
+}
+
+.item-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--primary);
+  box-shadow: 0 12px 26px rgba(0,0,0,0.08);
+}
+
+
+.item-type {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  padding: 5px 12px;
+  font-size: 0.7rem;
+  font-weight: 800;
+  border-radius: 999px;
+}
+
+.item-type.Lost {
+  background: #fef2f2;
+  color: var(--danger);
+}
+
+.item-type.Found {
+  background: #ecfdf5;
+  color: var(--success);
+}
+
+
+.item-card h3 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+
+.item-card .place {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  margin-bottom: 10px;
+}
+
+
+.item-card p {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+  margin-bottom: 10px;
+}
+
+
+.item-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: contain;
+  border-radius: 14px;
+  margin-top: 10px;
+}
+
+
+.empty-state {
+  grid-column: 1/-1;
+  text-align: center;
+  padding: 40px;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+
+@media (max-width: 900px) {
+  .container {
+    flex-direction: column;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header class="lf-header">
+
+  <div class="header-left">
+    <h1><i class="fas fa-box-open"></i> Lost & Found</h1>
+    <p>Help reunite people with their belongings</p>
+  </div>
+
+  <div class="header-right">
+    <div class="toggle-switch" id="pageToggle">
+      <div class="toggle-slider"></div>
+      <span class="toggle-option">Add</span>
+      <span class="toggle-option">View</span>
+    </div>
+
+
+  </div>
+
+</header>
+
+<div class="container">
+  <div class="filter-toggle" id="filterToggle">
+      <button data-filter="all" class="active">Both</button>
+      <button data-filter="lost" class="active">Lost</button>
+      <button data-filter="found">Found</button>
+  </div>
+  <div class="column" id="lostColumn">
+    <h2>Lost Items</h2>
+    <div id="lostItems"></div>
+  </div>
+
+  <div class="column" id="foundColumn">
+    <h2>Found Items</h2>
+    <div id="foundItems"></div>
+  </div>
+</div>
+
+<script>
+  const filterToggle = document.getElementById("filterToggle");
+  const lostColumn = document.getElementById("lostColumn");
+  const foundColumn = document.getElementById("foundColumn");
+
+  // ✅ initial state (show Lost only)
+  foundColumn.style.display = "none";
+  lostColumn.style.display = "block";
+
+  filterToggle.addEventListener("click", (e) => {
+    if (e.target.tagName !== "BUTTON") return;
+
+    document.querySelectorAll("#filterToggle button")
+      .forEach(btn => btn.classList.remove("active"));
+
+    e.target.classList.add("active");
+
+    const filter = e.target.dataset.filter;
+
+    if (filter === "lost") {
+      lostColumn.style.display = "block";
+      foundColumn.style.display = "none";
+    } 
+    else if (filter === "found") {
+      lostColumn.style.display = "none";
+      foundColumn.style.display = "block";
+    }
+  });
+</script>
+
+<script src="js/lostfound2.js"></script>
+</body>
+</html>
+ -->

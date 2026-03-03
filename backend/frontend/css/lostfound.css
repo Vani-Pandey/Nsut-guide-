@@ -106,7 +106,7 @@ font-size:13px;
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
 
 :root {
-  --primary: #6366f1;
+  --primary: #000000;
   --bg-color: #f8fafc;
   --card-bg: #ffffff;
   --border: #e2e8f0;
@@ -126,13 +126,13 @@ font-size:13px;
 body {
   background: var(--bg-color);
   color: var(--text-main);
-  padding: 2rem;
+  padding: 1.75rem;
 }
 
 /* Header */
 .lf-header {
   background: white;
-  padding: 2.5rem;
+  padding: 2rem;
   border-radius: 24px;
   border: 1px solid var(--border);
   margin-bottom: 2.5rem;
@@ -158,7 +158,7 @@ body {
 /* Form Section */
 .form-section {
   background: var(--card-bg);
-  padding: 2.5rem;
+  padding: 2rem;
   border-radius: 24px;
   border: 1px solid var(--border);
   margin-bottom: 3rem;
@@ -190,7 +190,7 @@ body {
 
 #itemForm textarea {
   resize: none;
-  height: 120px;
+  height: 70px;
 }
 
 #itemForm input:focus,
@@ -208,7 +208,7 @@ body {
 /* Submit Button */
 #itemForm button {
   margin-top: 1rem;
-  padding: 14px;
+  padding: 12px;
   border-radius: 16px;
   border: none;
   background: var(--primary);
@@ -291,7 +291,7 @@ body {
 .item-card img {
   width: 100%;
   height: 180px;
-  object-fit: cover;
+  object-fit: contain;
   border-radius: 16px;
   margin-top: 12px;
 }
@@ -468,7 +468,7 @@ body {
   position: relative;
   width: 140px;
   height: 40px;
-  background: #eee;
+  background: #bbbcc1;
   border-radius: 50px;
   display: flex;
   align-items: center;
@@ -477,19 +477,23 @@ body {
   font-weight: bold;
   font-size: 14px;
   overflow: hidden;
+  color: black;
 }
 
 .toggle-option {
   z-index: 2;
   flex: 1;
   text-align: center;
+  color: white;
 }
-
+.toggle-option.active {
+  color: black
+}
 .toggle-slider {
   position: absolute;
   width: 50%;
   height: 100%;
-  background: #6366f1;
+  background: #000000;
   border-radius: 50px;
   transition: 0.3s ease;
   left: 0;
