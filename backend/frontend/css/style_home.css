@@ -1,91 +1,107 @@
+/* Google Font Import */
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
 
 :root {
-    --primary: rgb(99, 102, 241);
-    --sidebar-bg: rgba(255, 255, 255, 0.7); /* Translucent */
-    --bg-color: #f8fafc;
+    --primary: rgb(0, 0, 0);
+    --primary-light: rgba(99, 102, 241, 0.2);
+    --bg-color: #f0f2f5; 
+    --glass-bg: rgba(255, 255, 255, 0.45);
+    --glass-border: rgba(255, 255, 255, 0.7);
     --text-main: #1e293b;
     --text-muted: #64748b;
     --sidebar-width: 260px;
-    --sidebar-collapsed: 88px;
-    --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    --sidebar-collapsed: 95px;
+    --transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Plus Jakarta Sans', sans-serif; }
+* { 
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; 
+    font-family: 'Plus Jakarta Sans', sans-serif; 
+}
 
-body { background-color: var(--bg-color); color: var(--text-main); overflow-x: hidden; }
+body { 
+    /* Modern Mesh Gradient Background - Glass effect isi se dikhta hai */
+    background-color: #f8fafc;
+    background-image: 
+        radial-gradient(at 0% 0%, rgba(99, 102, 241, 0.15) 0px, transparent 50%),
+        radial-gradient(at 100% 0%, rgba(219, 39, 119, 0.12) 0px, transparent 50%),
+        radial-gradient(at 100% 100%, rgba(16, 185, 129, 0.1) 0px, transparent 50%),
+        radial-gradient(at 0% 100%, rgba(245, 158, 11, 0.08) 0px, transparent 50%);
+    background-attachment: fixed;
+    color: var(--text-main); 
+    overflow-x: hidden;
+    min-height: 100vh;
+}
 
-/* Sidebar Logic */
+/* --- Floating Glass Sidebar --- */
 .sidebar {
     position: fixed;
-    top: 0; left: 0;
-    height: 100%;
+    top: 20px; 
+    left: 20px; 
+    bottom: 20px;
     width: var(--sidebar-collapsed);
-    background: var(--sidebar-bg);
-
-    backdrop-filter: blur(12px); /* Glass effect */
-    
-background: linear-gradient(
-  to right,
-   rgba(173, 174, 238,0.6),
-  rgba(255, 255, 255, 0.8)
- 
-);
-
-
+    background: var(--glass-bg);
+    backdrop-filter: blur(25px) saturate(180%);
+    -webkit-backdrop-filter: blur(25px) saturate(180%);
+    border: 1px solid var(--glass-border);
+    border-radius: 24px;
     padding: 1.5rem 0.8rem;
-    /* border-right: 1px solid rgba(226, 232, 240, 0.5); */
     transition: var(--transition);
     z-index: 1000;
     overflow: hidden;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.08);
 }
 
-/* Expansion on Hover */
 .sidebar:hover {
     width: var(--sidebar-width);
-
-backdrop-filter: blur(10px);
--webkit-backdrop-filter: blur(10px);
-
-    /* background: rgba(255, 255, 255, 0.95); */
-
-    box-shadow: 10px 0 30px rgba(0, 0, 0, 0.05);
+    background: rgba(255, 255, 255, 0.75);
+    box-shadow: 20px 20px 60px rgba(0, 0, 0, 0.05);
 }
 
 .sidebar-header {
     display: flex;
     align-items: center;
     margin-bottom: 2.5rem;
-    padding-left: 0.5rem;
+    padding-left: 0.8rem;
 }
 
-.logo-data { display: flex; align-items: center; white-space: nowrap; }
-.logo-icon { font-size: 1.8rem; color: var(--primary); margin-right: 15px; }
+.logo-icon { 
+    font-size: 2rem; 
+    color: var(--primary); 
+    min-width: 45px;
+}
+
 .logo-name { 
     font-size: 1.25rem; 
     font-weight: 800; 
-    opacity: 0; /* Hidden by default */
-    transition: opacity 0.3s ease;
+    opacity: 0; 
+    transform: translateX(-10px);
+    transition: all 0.3s ease;
 }
-.sidebar:hover .logo-name { opacity: 1; }
-.logo-name span { color: var(--primary); }
 
-/* Nav Links */
+.sidebar:hover .logo-name { 
+    opacity: 1; 
+    transform: translateX(0);
+}
+
+/* --- Navigation Links --- */
 .nav-links { list-style: none; }
-.nav-links li { margin-bottom: 0.5rem; }
+.nav-links li { margin-bottom: 0.7rem; }
 
 .nav-links a {
     display: flex;
     align-items: center;
     text-decoration: none;
     color: var(--text-muted);
-    padding: 0.9rem 1rem;
-    border-radius: 12px;
+    padding: 1rem;
+    border-radius: 16px;
     transition: 0.3s;
     white-space: nowrap;
 }
 
-.nav-links a i { font-size: 1.3rem; min-width: 35px; }
+.nav-links a i { font-size: 1.4rem; min-width: 45px; }
 
 .link-name {
     opacity: 0;
@@ -94,105 +110,104 @@ backdrop-filter: blur(10px);
 .sidebar:hover .link-name { opacity: 1; }
 
 .nav-links a:hover, .nav-links a.active {
-    /* background: #f5f3ff; */
+    background: rgba(99, 102, 241, 0.1);
     color: var(--primary);
 }
 
-.sidebar-footer {
-    position: absolute;
-    bottom: 20px;
-    left: 20px;
-    font-size: 0.75rem;
-    color: var(--text-muted);
-    opacity: 0;
-}
-.sidebar:hover .sidebar-footer { opacity: 1; }
-
-/* Main Content */
+/* --- Main Content Area --- */
 .main-content {
-    margin-left: var(--sidebar-collapsed);
-    padding: 2.5rem;
+    margin-left: calc(var(--sidebar-collapsed) + 40px);
+    padding: 3rem;
     transition: var(--transition);
 }
 
-/* Dashboard Header */
-.hero-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 3rem;
-    gap: 20px;
+.sidebar:hover ~ .main-content {
+    margin-left: calc(var(--sidebar-width) + 40px);
 }
 
-.search-container { width: 100%; max-width: 400px; }
+/* --- Search Bar Glass --- */
 .search-wrapper {
     display: flex;
     align-items: center;
-    background: white;
-    padding: 12px 18px;
-    border-radius: 16px;
-    border: 2px solid #eef2ff;
-    transition: var(--transition);
+    background: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(10px);
+    padding: 14px 22px;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);
+    transition: 0.3s;
 }
 
 .search-wrapper:focus-within {
+    background: white;
     border-color: var(--primary);
-    box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.1);
+    box-shadow: 0 10px 25px rgba(99, 102, 241, 0.1);
 }
 
 .search-wrapper input {
     border: none;
     outline: none;
+    background: transparent;
     width: 100%;
-    margin-left: 10px;
+    margin-left: 12px;
+    font-size: 1rem;
 }
 
-/* Feature Cards Grid */
+/* --- Feature Cards Glassmorphism --- */
 .dashboard-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 25px;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
 }
 
 .feature-card {
-    background: white;
-    padding: 2rem;
-    border-radius: 24px;
+    background: var(--glass-bg);
+    backdrop-filter: blur(15px) saturate(120%);
+    -webkit-backdrop-filter: blur(15px) saturate(120%);
+    padding: 2.5rem;
+    border-radius: 32px;
     text-decoration: none;
     color: inherit;
-    border: 1px solid #eef2ff;
-    transition: all 0.3s ease;
+    border: 1px solid var(--glass-border);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     display: flex;
     flex-direction: column;
 }
 
-.icon-box {
-    width: 55px; height: 55px;
-    background: #eef2ff;
-    color: var(--primary);
-    display: flex; align-items: center; justify-content: center;
-    border-radius: 16px;
-    font-size: 1.5rem;
-    margin-bottom: 1.5rem;
+.feature-card:hover {
+    transform: translateY(-12px);
+    background: rgba(255, 255, 255, 0.8);
+    border-color: var(--primary);
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.1);
 }
 
-/* Icon Colors */
+.icon-box {
+    width: 60px; height: 60px;
+    display: flex; align-items: center; justify-content: center;
+    border-radius: 18px;
+    font-size: 1.6rem;
+    margin-bottom: 1.5rem;
+    box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+/* Dynamic Colors for Icons */
+.color-1 { background: #eef2ff; color: var(--primary); }
 .color-2 { background: #fff7ed; color: #f97316; }
 .color-3 { background: #ecfdf5; color: #10b981; }
 .color-4 { background: #fdf2f8; color: #db2777; }
 .color-5 { background: #fefce8; color: #ca8a04; }
 .color-6 { background: #faf5ff; color: #9333ea; }
 
-.feature-card:hover {
-    transform: translateY(-10px);
-    border-color: var(--primary);
-    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.05);
+.feature-card h3 {
+    font-size: 1.4rem;
+    margin-bottom: 0.8rem;
+    font-weight: 700;
 }
 
 .feature-card p {
     color: var(--text-muted);
-    font-size: 0.95rem;
-    margin-bottom: 1.5rem;
+    line-height: 1.6;
+    margin-bottom: 2rem;
     flex-grow: 1;
 }
 
@@ -202,4 +217,187 @@ backdrop-filter: blur(10px);
     display: flex;
     align-items: center;
     gap: 8px;
+    transition: gap 0.3s;
+}
+
+.feature-card:hover .card-link {
+    gap: 15px;
+}
+/* --- Ultra Premium Banner Section --- */
+
+
+/* Header ko relative rakho taaki buttons iske hisaab se align hon */
+/* Container placement */
+.top-right-auth {
+    position: absolute;
+    top: 25px;
+    right: 40px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    z-index: 100; /* Taaki buttons hamesha upar rahein */
+}
+
+/* Base style for both links */
+.auth-link {
+    text-decoration: none;
+    color: #000000;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+}
+
+/* Login: Simple & Clean */
+.login-link {
+    color: #2d3436;
+    position: relative;
+}
+
+.login-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -4px;
+    left: 0;
+    background-color: #6c5ce7; /* Subtle accent color */
+    transition: width 0.3s ease;
+}
+
+.login-link:hover::after {
+    width: 100%;
+}
+
+/* Signup: The "Hero" Button */
+.signup-btn {
+    background:  #000000; /* Dark semi-transparent */
+    color: #ffffff !important;
+    padding: 12px 28px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px); /* Soft blur effect */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.signup-btn:hover {
+    background: #6100a1;
+    transform: translateY(-3px); /* Chhota sa jump effect */
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+.signup-btn:active {
+    transform: translateY(-1px);
+}
+/* --- Feature Card Base Enhancements --- */
+.feature-card {
+    position: relative;
+    overflow: hidden; /* Shine effect ke liye */
+    transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+/* --- Icon Box Animation --- */
+.feature-card:hover .icon-box {
+    transform: scale(1.1) rotate(-8deg);
+    filter: saturate(1.5);
+    transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* --- Card Content Fade-in --- */
+.feature-card h3, .feature-card p {
+    transition: transform 0.4s ease;
+}
+
+.feature-card:hover h3 {
+    transform: translateX(5px);
+    color: var(--primary);
+}
+
+/* --- Animated Shine Effect on Hover --- */
+.feature-card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, transparent 70%);
+    opacity: 0;
+    transition: 0.6s;
+    pointer-events: none;
+}
+
+.feature-card:hover::before {
+    opacity: 1;
+    transform: scale(0.6);
+}
+
+/* --- Arrow Icon Bounce Animation --- */
+.card-link i {
+    transition: transform 0.3s ease;
+}
+
+.feature-card:hover .card-link i {
+    animation: arrowBounce 0.8s infinite alternate;
+}
+
+@keyframes arrowBounce {
+    from { transform: translateX(0); }
+    to { transform: translateX(8px); }
+}
+
+/* --- Individual Icon Floating (Subtle) --- */
+.icon-box i {
+    animation: iconFloat 3s ease-in-out infinite;
+}
+
+@keyframes iconFloat {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+}
+
+/* Specific delays for each card's floating icon to make it look organic */
+.color-1 i { animation-delay: 0.1s; }
+.color-2 i { animation-delay: 0.3s; }
+.color-3 i { animation-delay: 0.5s; }
+.color-4 i { animation-delay: 0.2s; }
+.color-5 i { animation-delay: 0.4s; }
+.color-6 i { animation-delay: 0.6s; }
+.banner-container {
+    position: relative;
+    width: 100%;
+    height: 70vh;
+    overflow: hidden;
+    /* This creates a subtle outer glow to separate it from the white page */
+    box-shadow: 0 10px 40px rgba(233, 176, 176, 0.2); 
+}
+
+.banner-container::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* This gradient starts dark at the top-left (circle at 0% 0%) 
+       and fades out as it moves toward the bottom-right.
+    */
+    background: radial-gradient(
+        circle at 0% 0%, 
+        rgba(0, 0, 0, 0.3) 0%, 
+        rgba(0, 0, 0, 0.2) 50%, 
+        transparent 100%
+    );
+    z-index: 2;
+    pointer-events: none;
+}
+
+.banner-container img {
+    width: 100%;
+    height: 100%; 
+    object-fit: cover; 
+    display: block;
+    /* Adding a slight darkness filter globally helps too */
+    filter: brightness(0.95); 
 }
