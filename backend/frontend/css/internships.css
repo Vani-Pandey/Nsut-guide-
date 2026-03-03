@@ -1,0 +1,155 @@
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background: #f4f6fb;
+    margin: 0;
+}
+
+/* Main Content */
+.main-content {
+    margin-left: 90px;
+    padding: 30px;
+    transition: 0.3s;
+}
+
+.sidebar:hover ~ .main-content {
+    margin-left: 260px;
+}
+
+/* Header */
+.top-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.top-header h2 {
+    margin: 0;
+}
+
+.my-app-btn {
+    background: #1e293b;
+    color: white;
+    padding: 8px 16px;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.my-app-btn:hover {
+    background: #1e293b;
+}
+
+/* Filters */
+.filters {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin-bottom: 30px;
+}
+
+.filters select,
+.filters input {
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    outline: none;
+}
+
+.filters input:focus,
+.filters select:focus {
+    border-color: #1e293b;
+}
+
+/* Grid */
+.internship-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+}
+
+/* Card */
+.card {
+    background: white;
+    padding: 22px;
+    border-radius: 14px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+    transition: 0.3s;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.card:hover {
+    transform: translateY(-6px);
+}
+
+/* Top Section */
+.top {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 10px;
+}
+
+.logo {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+    background: #f3f4f6;
+    padding: 8px;
+    border-radius: 10px;
+}
+
+/* Text */
+.company {
+    color: #1e293b;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.card h3 {
+    margin: 0;
+    font-size: 18px;
+}
+
+/* Info */
+.info {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    font-size: 14px;
+    margin: 12px 0;
+}
+
+/* Buttons */
+.apply-btn {
+    background: #1e293b;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.apply-btn:hover {
+    background: #1e293b;
+}
+
+.apply-btn.applied {
+    background: green;
+}
+
+.delete-btn {
+    background: crimson;
+    color: white;
+    border: none;
+    padding: 8px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.delete-btn:hover {
+    opacity: 0.85;
+}

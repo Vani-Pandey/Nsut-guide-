@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Internships | NSUT Guide</title>
+
+<link rel="stylesheet" href="css/internships.css">
+<link rel="stylesheet" href="css/style_home.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body style="background-color: #e2e2e2 ;">
+
+<!-- Sidebar same as yours -->
+ <nav class="sidebar">
+        <div class="sidebar-header">
+          <i class="fas fa-graduation-cap logo-icon"></i>
+            <span class="logo-name">NSUT<span>Guide</span></span>
+        </div>
+
+        <ul class="nav-links">
+            <li><a href="index.html" class="active"><i class="fas fa-grip-vertical"></i><span class="link-name">Dashboard</span></a></li>
+            <li><a href="lostfound.html"><i class="fas fa-search-location"></i><span class="link-name">Lost & Found</span></a></li>
+            <li><a href="canteen.html"><i class="fas fa-bowl-food"></i><span class="link-name">Canteen Hub</span></a></li>
+            <li><a href="internships.html"><i class="fas fa-rocket"></i><span class="link-name">Opportunities</span></a></li>
+            <li><a href="map.html"><i class="fas fa-compass"></i><span class="link-name">Campus Map</span></a></li>
+          <li><a href="calendar.html"><i class="fas fa-calendar-alt"></i><span class="link-name">Academic Cal</span></a></li>
+            <li><a href="societies.html"><i class="fas fa-masks-theater"></i><span class="link-name">Societies</span></a></li>
+        </ul>
+
+        <div class="sidebar-footer">
+            <p>© 2026 NSUT Guide</p>
+        </div>
+    </nav>
+<div class="main-content">
+
+    <div class="top-header">
+        <h2>Explore Internships</h2>
+        <a href="myApplication.html" class="my-app-btn">
+            My Applications (<span id="appliedCount">0</span>)
+        </a>
+    </div>
+
+    <!-- FILTERS -->
+    <div class="filters">
+
+        <select id="roleFilter">
+            <option value="">All Roles</option>
+            <option value="Frontend">Frontend</option>
+            <option value="Backend">Backend</option>
+            <option value="Data">Data</option>
+            <option value="AI">AI/ML</option>
+        </select>
+
+        <select id="locationFilter">
+            <option value="">All Locations</option>
+            <option value="Remote">Remote</option>
+            <option value="Delhi">Delhi</option>
+            <option value="Bangalore">Bangalore</option>
+        </select>
+
+        <select id="stipendFilter">
+            <option value="">All Stipend</option>
+            <option value="20000">Above 20k</option>
+            <option value="30000">Above 30k</option>
+            <option value="40000">Above 40k</option>
+        </select>
+
+        <input type="text" id="searchInput" placeholder="Search by company...">
+
+    </div>
+
+    <div id="internshipContainer" class="internship-grid"></div>
+
+</div>
+
+
+<script src="js/internships.js"></script>
+
+
+</body>
+</html>
