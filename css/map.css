@@ -7,13 +7,18 @@ body {
 .map-container {
   height: 100vh;
   display: grid;
+  grid-template-columns: 0px 1fr;
+  transition: grid-template-columns 0.3s ease;
+}
+
+.map-container.sidebar-visible {
   grid-template-columns: 240px 1fr;
 }
 
 .map-header {
   position: absolute;
   top: 15px;
-  left: 260px;
+  right: 15px;
   z-index: 1000;
   background: rgba(15,23,42,0.9);
   padding: 12px 20px;
@@ -24,12 +29,43 @@ body {
   align-items: center;
 }
 
+.map-header.shifted {
+  left: 255px;
+}
+
+.zoom-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  align-items: right;
+}
+
+.zoom-controls button {
+  background: white;
+  border: none;
+  color: #0f172a;
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  transition: 0.3s;
+  align-items: right;
+}
+
+.zoom-controls button:hover {
+  background: #6366f1;
+  color: white;
+}
+
 .map-header input {
-  padding: 8px 12px;
+  padding: 12px 20px;
   border-radius: 8px;
   border: none;
   outline: none;
-  width: 220px;
+  width: 400px;
+  font-size: 20px;
 }
 
 .map-sidebar {
@@ -38,6 +74,35 @@ body {
   display: flex;
   flex-direction: column;
   gap: 12px;
+  position: relative;
+  transform: translateX(-100%);
+  transition: transform 0.3s ease;
+}
+
+.map-sidebar.visible {
+  transform: translateX(0);
+}
+
+.toggle-btn {
+  position: fixed;
+  left: 0;
+  top: 20px;
+  background: #1e293b;
+  border: none;
+  color: white;
+  padding: 10px 15px;
+  border-radius: 0 8px 8px 0;
+  cursor: pointer;
+  z-index: 1001;
+  transition: left 0.3s ease;
+}
+
+.toggle-btn.shifted {
+  left: 240px;
+}
+
+.toggle-btn:hover {
+  background: #6366f1;
 }
 
 .map-sidebar button {
