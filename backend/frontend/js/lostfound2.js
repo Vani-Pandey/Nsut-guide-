@@ -10,20 +10,38 @@ async function loadItems() {
 
   items.forEach(item => {
 
-    const card = `
-      <div class="item-card">
+// Card 1: LOST (Red Tag - Top Right)
+    const card1 = `
+      <div class="item-card" style="position: relative; padding-top: 25px;">
+        <span style="position: absolute; top: 10px; right: 10px; background-color: #ff4d4d; color: white; padding: 4px 10px; border-radius: 4px; font-weight: bold; font-size: 0.75rem;">LOST</span>
+        <div class="content_lostfound">
         <h3>${item.title}</h3>
         <p><b>Place:</b> ${item.place}</p>
         <p>${item.desc}</p>
         <p><b>Contact:</b> ${item.phone}</p>
+        </div>
+        ${item.image ? `<img src="${item.image}">` : ""}
+      </div>
+    `;
+
+    // Card 2: FOUND (Green Tag - Top Right)
+    const card2 = `
+      <div class="item-card" style="position: relative; padding-top: 25px;">
+        <span style="position: absolute; top: 10px; right: 10px; background-color: #2ecc71; color: white; padding: 4px 10px; border-radius: 4px; font-weight: bold; font-size: 0.75rem;">FOUND</span>
+        <div class="content_lostfound">
+        <h3>${item.title}</h3>
+        <p><b>Place:</b> ${item.place}</p>
+        <p>${item.desc}</p>
+        <p><b>Contact:</b> ${item.phone}</p>
+        </div>
         ${item.image ? `<img src="${item.image}">` : ""}
       </div>
     `;
 
     if (item.type === "Lost") {
-      lostContainer.innerHTML += card;
+      lostContainer.innerHTML += card1;
     } else if (item.type === "Found") {
-      foundContainer.innerHTML += card;
+      foundContainer.innerHTML += card2;
     }
 
   });
