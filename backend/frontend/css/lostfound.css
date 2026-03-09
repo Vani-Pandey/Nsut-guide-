@@ -1,108 +1,4 @@
-/* body{
-background:#0f172a;
-color:white;
-font-family:Segoe UI,sans-serif;
-margin:0;
-}
 
-.lf-header{
-text-align:center;
-padding:30px;
-}
-
-.tabs{
-display:flex;
-justify-content:center;
-gap:15px;
-margin-bottom:20px;
-}
-
-.tab-btn{
-background:#1e293b;
-color:white;
-border:none;
-padding:10px 25px;
-border-radius:20px;
-cursor:pointer;
-}
-
-.tab-btn.active{
-background:#6366f1;
-}
-
-.form-section{
-max-width:500px;
-margin:auto;
-background:#020617;
-padding:25px;
-border-radius:15px;
-}
-
-form{
-display:flex;
-flex-direction:column;
-gap:12px;
-}
-
-input,select,textarea{
-padding:10px;
-border-radius:8px;
-border:none;
-}
-
-button{
-background:#6366f1;
-color:white;
-padding:10px;
-border:none;
-border-radius:8px;
-cursor:pointer;
-}
-
-.items-section{
-padding:40px;
-}
-
-#itemsContainer{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:20px;
-}
-
-.card{
-background:#020617;
-border-radius:15px;
-overflow:hidden;
-}
-
-.card img{
-width:100%;
-height:180px;
-object-fit:cover;
-}
-
-.card-content{
-padding:15px;
-}
-
-.badge{
-padding:4px 10px;
-border-radius:20px;
-font-size:12px;
-}
-
-.lost{
-background:#ef4444;
-}
-
-.found{
-background:#22c55e;
-}
-
-.place{
-color:#94a3b8;
-font-size:13px;
-} */
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
 
 :root {
@@ -115,7 +11,10 @@ font-size:13px;
   --success: #10b981;
   --danger: #ef4444;
 }
-
+.main-content {
+  margin: 0;
+  padding: 0;
+}
 * {
   margin: 0;
   padding: 0;

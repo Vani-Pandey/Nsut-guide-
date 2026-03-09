@@ -110,8 +110,8 @@ backdrop-filter: blur(10px);
 
 /* Main Content */
 .main-content {
-    margin-left: var(--sidebar-collapsed);
-    padding: 2.5rem;
+    margin-left: calc(var(--sidebar-collapsed) + 40px);
+    padding: 3rem;
     transition: var(--transition);
 }
 
