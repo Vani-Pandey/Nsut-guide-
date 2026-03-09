@@ -32,7 +32,7 @@ body{
     width:50%;
     background:
         linear-gradient(rgba(0,0,0,0.35),rgba(0,0,0,0.35)),
-        url('https://th.bing.com/th/id/R.8e3f72cebdf164cb4775ed2c8dc7d96c?rik=na2vWLsFxpOFdA&riu=http%3a%2f%2fwww.nsut.ac.in%2fsites%2fdefault%2ffiles%2f2022-09%2fnsut+green+view.jpg&ehk=5d8zjJxqFqh3nlS6n4TtQn%2bC1QTnhpQMK9%2bLRnYoIaA%3d&risl=&pid=ImgRaw&r=0');
+        url("../image.jpeg");
     background-size:cover;
     background-position:center;
     position:absolute;

@@ -117,7 +117,8 @@ body {
 /* --- Main Content Area --- */
 .main-content {
     margin-left: calc(var(--sidebar-collapsed) + 40px);
-    padding: 3rem;
+    padding-left: 3rem;
+    padding-right: 3rem;
     transition: var(--transition);
 }
 
