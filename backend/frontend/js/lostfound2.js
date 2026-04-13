@@ -18,7 +18,7 @@ async function loadItems() {
         <h3>${item.title}</h3>
         <p><b>Place:</b> ${item.place}</p>
         <p>${item.desc}</p>
-        <p><b>Contact:</b> ${item.phone}</p>
+        <p><h4><b>Contact:</b></h4> ${item.phone}</p>
         </div>
         ${item.image ? `<img src="${item.image}">` : ""}
       </div>
@@ -32,7 +32,7 @@ async function loadItems() {
         <h3>${item.title}</h3>
         <p><b>Place:</b> ${item.place}</p>
         <p>${item.desc}</p>
-        <p><b>Contact:</b> ${item.phone}</p>
+        <p><h4><b>Contact:</b></h4> ${item.phone}</p>
         </div>
         ${item.image ? `<img src="${item.image}">` : ""}
       </div>
