@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NSUT Clubs & Societies</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            color: white;
+            margin-bottom: 40px;
+            padding: 20px 0;
+        }
+
+        h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .subtitle {
+            font-size: 1.3rem;
+            opacity: 0.9;
+        }
+
+        .clubs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+
+        .category {
+            margin-bottom: 40px;
+        }
+
+        .category h2 {
+            color: white;
+            font-size: 2rem;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid rgba(255,255,255,0.3);
+            text-align: center;
+        }
+
+        .club-tile {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 30px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            position: relative;
+            overflow: hidden;
+            height: 200px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .club-tile::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4);
+        }
+
+        .club-tile:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+            background: white;
+        }
+
+        .club-name {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+
+        .club-desc {
+            color: #7f8c8d;
+            font-size: 0.95rem;
+            flex-grow: 1;
+        }
+
+        .view-more {
+            color: #3498db;
+            font-weight: 600;
+            font-size: 0.9rem;
+            align-self: flex-start;
+        }
+
+        /* Detail Page Styles */
+        .detail-page {
+            min-height: 100vh;
+            padding: 100px 20px 40px;
+        }
+
+        .back-btn {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background: rgba(255,255,255,0.9);
+            border: none;
+            padding: 12px 24px;
+            border-radius: 25px;
+            font-weight: 600;
+            color: #3498db;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .back-btn:hover {
+            background: white;
+            transform: translateY(-2px);
+        }
+
+        .club-detail {
+            max-width: 900px;
+            margin: 0 auto;
+            background: rgba(255,255,255,0.95);
+            border-radius: 25px;
+            padding: 60px 40px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+        }
+
+        .club-detail h1 {
+            color: #2c3e50;
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .detail-section {
+            margin-bottom: 30px;
+        }
+
+        .detail-section h3 {
+            color: #3498db;
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            border-left: 4px solid #3498db;
+            padding-left: 15px;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 15px;
+            margin-top: 20px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 500;
+        }
+
+        .contact-item::before {
+            content: '📧';
+            font-size: 1.2rem;
+        }
+
+        .contact-item:nth-child(2)::before {
+            content: '📱';
+        }
+
+        .contact-item:nth-child(3)::before {
+            content: '🌐';
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .clubs-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            h1 {
+                font-size: 2.2rem;
+            }
+
+            .club-detail {
+                padding: 40px 20px;
+                margin: 20px;
+            }
+
+            .back-btn {
+                top: 10px;
+                left: 10px;
+                padding: 10px 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 10px;
+            }
+
+            h1 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Main Clubs Page -->
+    <div id="main-page">
+        <div class="container">
+            <header>
+                <h1>NSUT Clubs & Societies</h1>
+                <p class="subtitle">Discover your passion, connect with like-minded people</p>
+            </header>
+
+            <div class="clubs-grid">
+                <!-- Recreational Clubs -->
+                <div class="category">
+                    <h2>🎭 Recreational Clubs</h2>
+                    <div class="club-tile" onclick="openClub('ashwamedh')">
+                        <div class="club-name">Ashwamedh - The Dramatics Society</div>
+                        <div class="club-desc">Unleash your inner actor through street plays, monoacts, and theatrical productions that captivate audiences.</div>
+                        <div class="view-more">View Details →</div>
+                    </div>
+                    <div class="club-tile" onclick="openClub('crescendo')">
+                        <div class="club-name">Crescendo - The Music Society</div>
+                        <div class="club-desc">From classical to contemporary, find your rhythm with fellow music enthusiasts.</div>
+                        <div class="view-more">View Details →</div>
+                    </div>
+                    <div class="club-tile" onclick="openClub('junoon')">
+                        <div class="club-name">Junoon - The Photography Club</div>
+                        <div class="club-desc">Capture moments, tell stories through the lens of creativity and perspective.</div>
+                        <div class="view-more">View Details →</div>
+                    </div>
+                </div>
+
+                <!-- Technical Societies -->
+                <div class="category">
+                    <h2>⚙️ Technical Societies</h2>
+                    <div class="club-tile" onclick="openClub('csi')">
+                        <div class="club-name">CSI NSUT</div>
+                        <div class="club-desc">Computer Society of India - Advancing technology and professional development.</div>
+                        <div class="view-more">View Details →</div>
+                    </div>
+                    <div class="club-tile" onclick="openClub('ieee')">
+                        <div class="club-name">IEEE NSUT</div>
+                        <div class="club-desc">Institute of Electrical and Electronics Engineers student branch.</div>
+                        <div class="view-more">View Details →</div>
+                    </div>
+                    <div class="club-tile" onclick="openClub('control-delvers')">
+                        <div class="club-name">Control Delvers</div>
+                        <div class="club-desc">Masters of control systems, automation, and robotics.</div>
+                        <div class="view-more">View Details →</div>
+                    </div>
+                </div>
+
+                <!-- Non-Technical Societies -->
+                <div class="category">
+                    <h2>💼 Non-Technical Societies</h2>
+                    <div class="club-tile" onclick="openClub('enactus')">
+                        <div class="club-name">Enactus NSUT</div>
+                        <div class="club-desc">Social entrepreneurship that creates sustainable impact.</div>
+                        <div class="view-more">View Details →</div>
+                    </div>
+                    <div class="club-tile" onclick="openClub('finance')">
+                        <div class="club-name">Finance & Economics Society</div>
+                        <div class="club-desc">Navigate markets, analyze trends, and master financial strategies.</div>
+                        <div class="view-more">View Details →</div>
+                    </div>
+                    <div class="club-tile" onclick="openClub('ecell')">
+                        <div class="club-name">E-Cell NSUT</div>
+                        <div class="club-desc">Entrepreneurship Cell - Turning ideas into startups.</div>
+                        <div class="view-more">View Details →</div>
+                    </div>
+                </div>
+
+                <!-- Literary Clubs -->
+                <div class="category">
+                    <h2>📚 Literary Clubs</h2>
+                    <div class="club-tile" onclick="openClub('alliance')">
+                        <div class="club-name">The Alliance - NSUT's Newspaper</div>
+                        <div class="club-desc">Voice of the campus through investigative journalism and stories.</div>
+                        <div class="view-more">View Details →</div>
+                    </div>
+                    <div class="club-tile" onclick="openClub('debating')">
+                        <div class="club-name">Debating Society of NSUT</div>
+                        <div class="club-desc">Hone your arguments and critical thinking skills.</div>
+                        <div class="view-more">View Details →</div>
+                    </div>
+                    <div class="club-tile" onclick="openClub('quiz')">
+                        <div class="club-name">The NSUT Quiz Club</div>
+                        <div class="club-desc">Test your knowledge across domains in thrilling quiz competitions.</div>
+                        <div class="view-more">View Details →</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Club Detail Page Template -->
+    <div id="detail-page" class="detail-page" style="display: none;">
+        <button class="back-btn" onclick="showMainPage()">← Back to Clubs</button>
+        <div class="club-detail" id="club-content">
+            <!-- Dynamic content loaded here -->
+        </div>
+    </div>
+
+    <script>
+        const clubData = {
+            ashwamedh: {
+                name: "Ashwamedh - The Dramatics Society",
+                activities: "Street plays, monoacts, group acts, theatre workshops, inter-college competitions",
+                benefits: "Develop public speaking, confidence, teamwork, creative expression",
+                contact: ["dramatics@nsut.ac.in", "+91-9876543210", "nsutdramatics.in"]
+            },
+            crescendo: {
+                name: "Crescendo - The Music Society",
+                activities: "Western/Indian band performances, music workshops, fusion nights, college fests",
+                benefits: "Musical skill development, stage performance experience, networking with artists",
+                contact: ["music@nsut.ac.in", "+91-9876543211", "nsutmusic.com"]
+            },
+            junoon: {
+                name: "Junoon - The Photography Club",
+                activities: "Photo walks, exhibitions, workshops, photography competitions, coverage of events",
+                benefits: "Professional photography skills, portfolio building, creative networking",
+                contact: ["photography@nsut.ac.in", "+91-9876543212", "nsutjunoon.com"]
+            },
+            csi: {
+                name: "CSI NSUT",
+                activities: "Coding competitions, tech talks, workshops, certifications, hackathons",
+                benefits: "Technical skill enhancement, industry connections, certification opportunities",
+                contact: ["csi@nsut.ac.in", "+91-9876543213", "csi-nsut.org"]
+            },
+            ieee: {
+                name: "IEEE NSUT",
+                activities: "Technical paper presentations, webinars, workshops, industry visits",
+                benefits: "Global IEEE membership benefits, research opportunities, professional networking",
+                contact: ["ieee@nsut.ac.in", "+91-9876543214", "ieee-nsut.org"]
+            }
+            // Add more clubs as needed
+        };
+
+        function openClub(clubId) {
+            const detailPage = document.getElementById('detail-page');
+            const clubContent = document.getElementById('club-content');
+            const club = clubData[clubId];
+            
+            if (club) {
+                clubContent.innerHTML = `
+                    <h1>${club.name}</h1>
+                    
+                    <div class="detail-section">
+                        <h3>🎯 Key Activities</h3>
+                        <p>${club.activities}</p>
+                    </div>
+                    
+                    <div class="detail-section">
+                        <h3>✨ Member Benefits</h3>
+                        <p>${club.benefits}</p>
+                    </div>
+                    
+                    <div class="detail-section">
+                        <h3>📞 Contact Information</h3>
+                        <div class="contact-info">
+                            <div class="contact-item">${club.contact[0]}</div>
+                            <div class="contact-item">${club.contact[1]}</div>
+                            <div class="contact-item">${club.contact[2]}</div>
+                        </div>
+                    </div>
+                `;
+                
+                document.getElementById('main-page').style.display = 'none';
+                detailPage.style.display = 'block';
+                document.body.scrollTop = 0;
+            }
+        }
+
+        function showMainPage() {
+            document.getElementById('detail-page').style.display = 'none';
+            document.getElementById('main-page').style.display = 'block';
+            document.body.scrollTop = 0;
+        }
+
+        // Smooth scrolling for better UX
+        document.querySelectorAll('.club-tile').forEach(tile => {
+            tile.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-10px) scale(1.02)';
+            });
+            
+            tile.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+    </script>
+</body>
+</html>

@@ -22,8 +22,11 @@ app.use("/api/items", require("./routes/items"));
 
 // Pages
 app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "frontend", "home.html"));
+  res.sendFile(path.join(__dirname, "frontend", "login.html"));
 });
+app.get("/home", (req, res) => {
+  res.sendFile(path.join(__dirname, "frontend", "home.html"));
+})
 
 app.get("/lostfound", (req, res) => {
   res.sendFile(path.join(__dirname, "frontend", "lostfound.html"));

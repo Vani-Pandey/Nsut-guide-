@@ -10,8 +10,13 @@ body{
     display:flex;
     justify-content:center;
     align-items:center;
-    background:radial-gradient(circle at top,#0f172a,#020617);
+        background-image:
+radial-gradient(at 0% 0%, #c1c0d5e5 0px, transparent 50%),
+radial-gradient(at 100% 0%, #6c8eec 0px, transparent 50%),
+radial-gradient(at 100% 100%, #ff7ac5 0px, transparent 50%),
+radial-gradient(at 0% 100%, #2d3a73e0 0px, transparent 50%);
     perspective:1200px;
+    
 }
 
 /* ===== Card ===== */

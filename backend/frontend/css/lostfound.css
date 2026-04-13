@@ -26,6 +26,7 @@ body {
   background: var(--bg-color);
   color: var(--text-main);
   padding: 1.75rem;
+  background: #f4f6fb;
 }
 
 /* Header */

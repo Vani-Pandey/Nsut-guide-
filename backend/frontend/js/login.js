@@ -7,7 +7,9 @@ function goLogin(){
         document.getElementById("loginForm").style.display="block";
     },650);
 }
-
+function loginRedirect() {
+    window.location.href = "home.html"; 
+}
 function goSignup(){
     const container = document.getElementById("container");
     container.classList.remove("login-mode");
